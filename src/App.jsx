@@ -1,16 +1,12 @@
-
-
 import React from 'react'
-import './App.css'
+import ClickEvent from './ClickEvent'
 
-let a = "Mangoes";
-let b = "Apples"
-
-
- function App() {
+const App = () => {
   return (
-    <div className='container'>
-      <h1>This is paragraph</h1>
+    <div>
+      <h1>Welcome to <react className="js"></react>
+      <ClickEvent/>
+      </h1>
     </div>
   )
 }
