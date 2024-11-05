@@ -1,22 +1,12 @@
 import React from 'react'
-
-
-
-import FormExample from './FormExample'
+import Curd from './Curd'
 
 
 const App = () => {
   return (
     <div>
-      <h1>Welcome to <react className="js"></react>
-      
-
-      
-      </h1>
-
-      
-
-    <FormExample/>
+      <h1>Curd Operations in React.js</h1>
+    <Curd />
 
     </div>
   )
