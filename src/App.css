@@ -41,11 +41,47 @@
 
 
 
-
-.card-title {
-   font-size: 14px; 
+ .card-title {
+   font-size: 30px; 
+   text-align: center;
 }
 
 .card-text {
-   font-size: 10px; 
+   font-size: 15px; 
+   margin-top: 15px;
+   text-align: center;
+} 
+
+
+
+
+Routes{
+   font-size: 60px;
 }
+.navbar {
+   background-color: pink; 
+   padding: 10px;
+ }
+ 
+ .navbar ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+ }
+ 
+ .navbar li {
+   margin: 0 15px;
+ }
+ 
+ .navbar a {
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+   transition: color 0.3s;
+ }
+ 
+ .navbar a:hover {
+   color: blue; 
+ }
