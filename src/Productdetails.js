@@ -13,7 +13,7 @@ const Productdetails = () =>{
     useEffect(() =>{
         
         if(id){
-            fetch(https://fakestoreapi.com/products/${id})
+            fetch(`https://fakestoreapi.com/products/${id}`)
             .then(res=>res.json())
             .then(json=>setcard(json))
         }

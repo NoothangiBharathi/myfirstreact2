@@ -134,7 +134,12 @@
 
 import React from 'react'
 import './App.css'
-import Greeting from './Greeting'
+import { Route, Routes } from 'react-router-dom'
+import ProductCategery from './ProductCategery'
+import SelectProductById from './SelectProductById'
+// import Greeting from './Greeting'
+// import FetchCategory from './FetchCatagory.js'
+// import ProductCatagory from './ProductCatagory.jsx'
 
 
 
@@ -142,12 +147,10 @@ import Greeting from './Greeting'
 function App() {
   return (
     <div>
-
-    <reducer/>
-    <Greeting/> (Default Props)
-    <withLogger/>
-    
-
+      <Routes>
+        <Route path='/' element={<ProductCategery />} />
+        <Route path='/selectProduct' element={<SelectProductById />}/>
+      </Routes>
 
     </div>
   )

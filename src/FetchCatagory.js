@@ -33,7 +33,7 @@ function FetchCategory(){
     
     const handlefiltercategory = async(data) =>{
 
-       let response = await fetch(https://fakestoreapi.com/products/category/${data})
+       let response = await fetch(`https://fakestoreapi.com/products/category/${data}`)
 
        let data2 = await response.json()
        setfilterdata(data2)
