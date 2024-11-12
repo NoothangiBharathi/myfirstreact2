@@ -157,3 +157,46 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useContext } from 'react';
+// import { ThemeContext, ThemeProvider } from './ThemeContext';
+
+// function MainComponent() {
+//   const { theme, toggleTheme } = useContext(ThemeContext);
+
+//   return (
+//     <div style={{
+//       background: theme === "light" ? "#fff" : "#333",
+//       color: theme === "light" ? "#000" : "#fff",
+//       height: "100vh",
+//       display: "flex",
+//       alignItems: "center",
+//       justifyContent: "center",
+//       flexDirection: "column"
+//     }}>
+//       <h1>{theme === "light" ? "Light Theme" : "Dark Theme"}</h1>
+//       <button onClick={toggleTheme}>Toggle Theme</button>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <ThemeProvider>
+//       <MainComponent />
+//     </ThemeProvider>
+//   );
+// }
+
+// export default App;
