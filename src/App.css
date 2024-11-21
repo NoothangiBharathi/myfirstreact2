@@ -1,87 +1,18 @@
-/* .container {
-   background-color: rgb(168, 168, 234);
-   text-align: center;
-   font-size: 30px;
+ /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Sacramento&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: "Roboto", serif; 
 }
 
-
-.container h1{
-   font-size: 100px;
-   text-align: center;
-    
-}
-
-
-.samplepicture{
-   height: 300px;
-   width: 300px;
-   margin-left: 50px;
-   border-radius: 20px;
-   margin-top: 70px;
-}
-
-.samplepicture2{
-   height: 400px;
-   width: 400px;
-   margin-left: 20px;
-   border-radius: 20px;
-   
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- .card-title {
-   font-size: 30px; 
-   text-align: center;
-}
-
-.card-text {
-   font-size: 15px; 
-   margin-top: 15px;
-   text-align: center;
-} 
-
-
-
-
-Routes{
-   font-size: 60px;
-}
-.navbar {
-   background-color: pink; 
-   padding: 10px;
- }
- 
- .navbar ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   justify-content: center;
- }
- 
- .navbar li {
-   margin: 0 15px;
- }
- 
- .navbar a {
-   text-decoration: none;
-   color: black;
-   font-weight: bold;
-   transition: color 0.3s;
- }
- 
- .navbar a:hover {
-   color: blue; 
- }
+.carousel-caption {
+  font-family: 'Sacramento', cursive; 
+   font-size: 2.5rem;
+  color: #222;
+  text-shadow: 2px 2px #ffb703;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 400px;
+}  */
