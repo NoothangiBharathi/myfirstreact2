@@ -1,7 +1,7 @@
 import React from 'react'
 import ImageSliders from './homecomponents/ImageSliders'
-import CartComp from './CartComp'
-import Cart from './Cart'
+// import CartComp from './CartComp'
+// import Cart from './Cart'
 
 
 
@@ -12,9 +12,9 @@ const App = () => {
   return (
     <div>
 
-      {/* <ImageSliders/> */}
-      <CartComp/>
-      <Cart/>
+       <ImageSliders/> 
+      {/* <CartComp/>
+      <Cart/> */}
       {/* <createImageBitmap/> */}
     </div>
   )
