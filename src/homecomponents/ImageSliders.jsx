@@ -53,7 +53,12 @@ const ImageSliders = () => {
         </div>
  
 
-       
+
+
+
+
+
+
         <div
           className="button-container"
           style={{
@@ -117,6 +122,10 @@ const ImageSliders = () => {
 </button>
         </div>
 
+
+
+
+  
         
         <ol className="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" className="active"></li>

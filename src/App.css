@@ -18,7 +18,7 @@
 }  */
 
 
-
+/* 
 
 .btn1, .btn2 {
   padding: 10px 20px;
@@ -37,9 +37,36 @@
 
 .btn1:hover, .btn2:hover {
   transform: scale(1.1);
-  background-color: #ff4b4b; /* Slightly darker shade for hover */
+  background-color: #ff4b4b; 
 }
 
 .btn2:hover {
-  background-color: #3b9c3b; /* Slightly darker shade for hover */
+  background-color: #3b9c3b; 
+} */
+
+
+
+
+/* 
+.carousel-button {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.carousel-button:hover {
+  transform: scale(1.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+} */
+
+
+
+
+
+
+.carousel-button {
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.carousel-button:hover {
+  transform: scale(1.1); /* Scale the button to 110% of its original size */
+}
+
