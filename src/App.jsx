@@ -12,6 +12,7 @@ import BookAppointment from './BookAppointment'
 import './App'
 import RescheduleAppointment from './RescheduleAppointment'
 import CancelAppointment from './CancelAppointment'
+import BookAppointment1 from './BookAppointment1'
 
 const App = () => {
   return (
@@ -26,8 +27,12 @@ const App = () => {
       {/* <Appointment/> */}
 
 
-      <h1>Book Appointment for tattoo design</h1>
-      <BookAppointment/>
+       {/* <h1>Book Appointment for tattoo design</h1> */}
+      {/* <BookAppointment/>  */}
+
+
+
+      <BookAppointment1/>
 
 
    

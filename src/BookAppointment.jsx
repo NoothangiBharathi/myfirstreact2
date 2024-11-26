@@ -1,132 +1,188 @@
-
-
-// src/AppointmentForm.js
 import React, { useState } from 'react';
+import './App.css';
 
-function BookAppointment(){
-  // State variables for input fields
-  const [userId, setUserId] = useState('');
-  const [designId, setDesignId] = useState('');
-  const [artistId, setArtistId] = useState('');
-  const [date, setDate] = useState('');
-  
-  // State variables for handling success/error messages
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+function BookAppointment() {
+  const [formData, setFormData] = useState({
+    userId: '',
+    designId: '',
+    artistId: '',
+    date: '',
+    time: ''
+  });
 
-  // Handling form submission
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const [confirmation, setConfirmation] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    // Creating an appointment object
-    const appointment = {
-      userId,
-      designId,
-      artistId,
-      date
-    };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-    // Define the endpoint URL
-    const endpoint = 'https://your-api-endpoint.com/appointments'; // Replace with your actual API endpoint
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.userId || !formData.designId || !formData.artistId || !formData.date || !formData.time) {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
 
     try {
-      // Send POST request using fetch
-      const response = await fetch(endpoint, {
+      const response = await fetch('https://your-api-endpoint.com/appointments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(appointment),
+        body: JSON.stringify(formData),
       });
 
-      // Check if the request was successful
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Appointment booked:', data);
-
-        // Set success message
-        setSuccessMessage('Appointment booked successfully!');
-        
-        // Reset the form after submission
-        setUserId('');
-        setDesignId('');
-        setArtistId('');
-        setDate('');
-        
-        // Clear success message after 3 seconds
-        setTimeout(() => {
-          setSuccessMessage('');
-        }, 3000);
-      } else {
-        // Handle API errors (non-200 responses)
-        const errorData = await response.json();
-        setErrorMessage(errorData.message || 'An error occurred, please try again.');
+      if (!response.ok) {
+        throw new Error('Failed to book appointment');
       }
-    } catch (error) {
-      // Catch network errors or unexpected issues
-      console.error('Error:', error);
-      setErrorMessage('Failed to book appointment. Please try again later.');
+
+      const responseData = await response.json();
+
+      setConfirmation({
+        userId: formData.userId,
+        designId: formData.designId,
+        artistId: formData.artistId,
+        date: formData.date,
+        time: formData.time,
+      });
+
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="appointment-form">
-      <h2>Book an Appointment</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="userId">User ID</label>
-          <input
-            type="number"
-            id="userId"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-            required
-          />
+    <div className="App container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+      <div className="card" style={{ width: '100%', maxWidth: '400px' }}>
+        <div className="card-body">
+          <h1 className="text-center mb-4">Booking</h1>
+
+          {!confirmation ? (
+            <form onSubmit={handleSubmit}>
+              <div className="form-group mb-3">
+                <label htmlFor="userId">User ID:</label>
+                <input
+                  type="number"
+                  id="userId"
+                  name="userId"
+                  className="form-control"
+                  value={formData.userId}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group mb-3">
+                <label htmlFor="designId">Design ID:</label>
+                <input
+                  type="number"
+                  id="designId"
+                  name="designId"
+                  className="form-control"
+                  value={formData.designId}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group mb-3">
+                <label htmlFor="artistId">Artist ID:</label>
+                <input
+                  type="number"
+                  id="artistId"
+                  name="artistId"
+                  className="form-control"
+                  value={formData.artistId}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group mb-3">
+                <label htmlFor="date">Date:</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  className="form-control"
+                  value={formData.date}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group mb-3">
+                <label htmlFor="time">Time:</label>
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  className="form-control"
+                  value={formData.time}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                {loading ? 'Booking...' : 'Book Appointment'}
+              </button>
+
+              {error && <p className="text-danger mt-3">{error}</p>}
+            </form>
+          ) : (
+            <div className="confirmation mt-4 p-4 border rounded bg-light">
+              <h5 className="text-center" style={{ fontSize: '15px' }}>Appointment Confirmed</h5>
+              <p><strong>User ID:</strong> {confirmation.userId}</p>
+              <p><strong>Design ID:</strong> {confirmation.designId}</p>
+              <p><strong>Artist ID:</strong> {confirmation.artistId}</p>
+              <p><strong>Date:</strong> {confirmation.date}</p>
+              <p><strong>Time:</strong> {confirmation.time}</p>
+            </div>
+          )}
         </div>
-
-        <div>
-          <label htmlFor="designId">Design ID</label>
-          <input
-            type="number"
-            id="designId"
-            value={designId}
-            onChange={(e) => setDesignId(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="artistId">Artist ID</label>
-          <input
-            type="number"
-            id="artistId"
-            value={artistId}
-            onChange={(e) => setArtistId(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="date">Date</label>
-          <input
-            type="date"
-            id="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
-
-        <button type="submit">Book Appointment</button>
-      </form>
-
-      {/* Success message display */}
-      {successMessage && <div className="success-message">{successMessage}</div>}
-      
-      {/* Error message display */}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+      </div>
     </div>
   );
 }
 
 export default BookAppointment;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
