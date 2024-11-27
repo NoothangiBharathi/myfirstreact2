@@ -13,6 +13,7 @@ import './App'
 import RescheduleAppointment from './RescheduleAppointment'
 import CancelAppointment from './CancelAppointment'
 import BookAppointment1 from './BookAppointment1'
+import ContactUs from './ContactUs'
 
 const App = () => {
   return (
@@ -32,7 +33,7 @@ const App = () => {
 
 
 
-      <BookAppointment1/>
+      {/* <BookAppointment1/> */}
 
 
    
@@ -42,6 +43,11 @@ const App = () => {
 
 
       {/* <CancelAppointment/> */}
+
+
+
+
+      <ContactUs/>
     </div>
   )
 }
